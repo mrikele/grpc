@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+service Chat{
+    rpc ConversaChat (Retorno) returns (stream Mensagem);
+    rpc EnviaMensagem (Mensagem) returns (Retorno);
+    rpc EnviaCredencial (Credencial) returns (Retorno);
+}
+
+message Retorno{}
+
+message Mensagem{
+    string dono = 1;
+    string conteudo = 2;
+}
+
+message Credencial {
+    string nome = 1;
+    string servidor = 2;
+    string porta = 3;
+}
